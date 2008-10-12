@@ -14,6 +14,8 @@ namespace :db do
   end
   
   desc "Runs migrations and then loads seed data"
+  task :migrate_and_populate => [ 'db:migrate', 'db:populate' ]
+
   task :migrate_and_load => [ 'db:migrate', 'db:populate' ]
   
 end
