@@ -55,3 +55,8 @@ db_populate includes two rake tasks:
 
 rake db:populate loads all of the data for the current environment
 rake db:migrate_and_populate is the same as calling rake db:migrate followed by rake db:populate
+
+History
+=======
+2009-03-21 Patch from Ahmed El-Daly to allow PKs with names other than id
+2008-10-11 Initial release

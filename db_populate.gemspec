@@ -1,10 +1,10 @@
 Gem::Specification.new do |s|
   s.name     = "db_populate"
-  s.version  = "0.2.0"
-  s.date     = "2008-10-11"
+  s.version  = "0.2.1"
+  s.date     = "2009-03-21"
   s.summary  = "Seed data populator for Rails"
   s.email    = "MikeG1@larkfarm.com"
-  s.homepage = "http://github.com/ffmike/db_populate"
+  s.homepage = "http://github.com/ffmike/db-populate/tree/master"
   s.description = "db_populate provides rake and code support for adding seed data to Rails projects. Forked from a rake task by
   Josh Knowles, plus code by Luke Francl."
   s.has_rdoc = false
