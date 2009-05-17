@@ -35,7 +35,7 @@ db/populate/production/01_users.rb
 db/populate/production/02_options.rb
 
 Within each file, you can place whatever ruby code you like. To help create consistent
-records, db_populate adds create_or_populate to ActiveRecord::Base. This method looks up
+records, db_populate adds create_or_update to ActiveRecord::Base. This method looks up
 a record by ID; if the record exists, it is updated, and if it doesn't, it is created. Using
 this technique means that you can edit and re-run your db_populate tasks without damaging 
 data that have already been loaded once. For example, assuming your roles table has already
@@ -58,5 +58,6 @@ rake db:migrate_and_populate is the same as calling rake db:migrate followed by 
 
 History
 =======
+2009-05-17 Fix typo in README
 2009-03-21 Patch from Ahmed El-Daly to allow PKs with names other than id
 2008-10-11 Initial release

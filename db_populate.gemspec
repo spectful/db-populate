@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name     = "db_populate"
-  s.version  = "0.2.2"
-  s.date     = "2009-03-21"
+  s.version  = "0.2.3"
+  s.date     = "2009-05-17"
   s.summary  = "Seed data populator for Rails"
   s.email    = "MikeG1@larkfarm.com"
   s.homepage = "http://github.com/ffmike/db-populate/tree/master"
