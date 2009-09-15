@@ -18,4 +18,9 @@ namespace :db do
 
   task :migrate_and_load => [ 'db:migrate', 'db:populate' ]
   
+  desc "Drop and reset the database for the current environment and then load seed data"
+  task :reset_and_populate => [ 'db:reset', 'db:populate']
+
+  task :reset_and_load => [ 'db:reset', 'db:populate']
+  
 end
