@@ -5,15 +5,20 @@ class ActiveRecord::Base
   # If it exists, it is updated with the given options. 
   #
   # Raises an exception if the record is invalid to ensure seed data is loaded correctly.
-  # 
+  # Pass :perform_validations => false to skip validations in the model.
+  #
   # Returns the record.
   def self.create_or_update(options = {})
     id = options.delete(primary_key.to_sym)
+    validate = options.delete(:perform_validations) || true
     record = send("find_by_#{primary_key}", id) || new
     record.id = id
     record.attributes = options
-    record.save!
-    
+    if validate
+      record.save!
+    else
+      record.save!(false)
+    end
     record
   end
 end

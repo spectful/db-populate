@@ -49,6 +49,13 @@ Permission.create_or_update(:id => 1, :role_id => role.id, :user_id => user.id)
 If you change your mind about the name for the site administrator, you can just edit the data
 and re-run the task.
 
+By default, create_or_update validates the data (using your model's validations) to ensure that 
+the data in the database is good. You can turn off validations by passing :perform_validations => false as one
+of the parameters to create_or_update:
+
+user = User.create_or_update(:id => 1, :login => "admin", :email => "BOGUS", 
+ :name => "Site Administrator", :password => "admin", :password_confirmation => "admin", :perform_validations => false)
+
 db_populate rake tasks
 ======================
 db_populate includes three rake tasks:
