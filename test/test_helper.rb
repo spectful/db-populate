@@ -1,7 +1,11 @@
 ENV['RAILS_ENV'] = 'test'
 
 require 'rubygems'
-require 'test/unit'
+begin
+  gem 'test-unit', '~> 2.0'
+rescue Gem::LoadError
+  require 'test/unit'
+end
 require 'action_controller'
 require 'active_record'
 require 'action_view'
