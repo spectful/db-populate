@@ -50,8 +50,8 @@ If you change your mind about the name for the site administrator, you can just 
 and re-run the task.
 
 By default, create_or_update validates the data (using your model's validations) to ensure that 
-the data in the database is good. You can turn off validations by passing :perform_validations => false as one
-of the parameters to create_or_update:
+the data in the database is good. You can turn off validations and attr_accessible checks 
+by passing :perform_validations => false as one of the options to create_or_update:
 
 user = User.create_or_update(:id => 1, :login => "admin", :email => "BOGUS", 
  :name => "Site Administrator", :password => "admin", :password_confirmation => "admin", :perform_validations => false)
@@ -64,8 +64,17 @@ rake db:populate loads all of the data for the current environment
 rake db:migrate_and_populate is the same as calling rake db:migrate followed by rake db:populate
 rake db:reset_and_populate is the same as calling rake db:reset followed by rake db:populate
 
+gem usage
+=========
+If you install db_populate as a gem, you need to add this line to your project Rakefile to make
+the db_populate tasks available:
+
+require 'db_populate'
+
 History
 =======
+2009-11-26 Allow create_or_update to skip validations (suggestion by Josh Sharpe)
+2009-11-26 Fix gem version (bug reported by Vitaly Ignatov)
 2009-09-15 Add db:reset_and_populate task
 2009-05-17 Fix typo in README
 2009-03-21 Patch from Ahmed El-Daly to allow PKs with names other than id
