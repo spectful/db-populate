@@ -13,10 +13,13 @@ class ActiveRecord::Base
     validate = options.delete(:perform_validations){|k| true}
     record = send("find_by_#{primary_key}", id) || new
     record.id = id
-    record.attributes = options
     if validate
+      record.attributes = options
       record.save!
     else
+      options.each do |key, value|
+        record.send("#{key}=", value)
+      end
       record.save(false)
     end
     record

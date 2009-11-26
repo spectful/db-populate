@@ -9,6 +9,7 @@ end
 require 'action_controller'
 require 'active_record'
 require 'action_view'
+require 'mocha'
 
 config = YAML::load(IO.read(File.dirname(__FILE__) + '/database.yml'))
 
