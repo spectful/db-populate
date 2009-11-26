@@ -49,7 +49,7 @@ class DbPopulateTest < Test::Unit::TestCase
   
   def test_creates_new_record_without_validation
     Customer.delete_all
-    Customer.create_or_update(:cust_id => 1, :name => "Me")
+    Customer.create_or_update(:cust_id => 1, :name => "Me", :perform_validations => false)
     assert_equal Customer.count, 1
     c = Customer.find(:first)
     assert_equal c.name, "Me"
