@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name     = "db_populate"
-  s.version  = "0.2.4"
-  s.date     = "2009-09-15"
+  s.version  = "0.2.5"
+  s.date     = "2009-11-26"
   s.summary  = "Seed data populator for Rails"
   s.email    = "MikeG1@larkfarm.com"
   s.homepage = "http://github.com/ffmike/db-populate/tree/master"
@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
     "init.rb",
     "install.rb",
     "lib/create_or_update.rb",
+    "lib/db_populate.rb",
     "rails/init.rb",
     "tasks/populate.rake",
     "tasks/db_populate_tasks.rake",
