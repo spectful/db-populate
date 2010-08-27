@@ -26,13 +26,19 @@ To get started with db_populate, create the folder db/populate in your Rails app
 Any code you put in this folder will be run by db_populate. Optionally, you can create
 subfolders for your Rails environments, just as you can with config files. db_populate
 executes all of the top-level populate files first, followed by any environment-specific
-populate files, sorting each list by name. So, for example, with 4 files in the production
-environment, db_populate would order this way:
+populate files, sorting each list by name. 
+
+Files in the 'shared' subfolder will be run for all environments, sorted with the other
+files for that environment. Files in the 'after' subfolder will be run after any environment.
+
+So, for example, with 6 files in the production environment, db_populate would order this way:
 
 db/populate/01_roles.rb
 db/populate/02_services.rb
-db/populate/production/01_users.rb
-db/populate/production/02_options.rb
+db/populate/production/01_users.rb    
+db/populate/shared/02_options.db
+db/populate/production/03_accounts.rb
+db/populate/after/01_cleanup.rb
 
 Within each file, you can place whatever ruby code you like. To help create consistent
 records, db_populate adds create_or_update to ActiveRecord::Base. This method looks up
@@ -72,7 +78,8 @@ the db_populate tasks available:
 require 'db_populate'
 
 History
-=======
+======= 
+2010-08-27 Added /shared and /after conventions
 2009-11-26 Allow create_or_update to skip validations (suggestion by Josh Sharpe)
 2009-11-26 Fix gem version (bug reported by Vitaly Ignatov)
 2009-09-15 Add db:reset_and_populate task

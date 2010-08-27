@@ -7,7 +7,11 @@ namespace :db do
       load fixture 
       puts "Loaded #{fixture}"
     end
-    Dir[File.join(RAILS_ROOT, 'db', 'populate', RAILS_ENV, '*.rb')].sort.each do |fixture| 
+    (Dir[File.join(RAILS_ROOT, 'db', 'populate', RAILS_ENV, '*.rb')] + Dir[File.join(RAILS_ROOT, 'db', 'populate', 'shared', '*.rb')]).sort{|x,y| File.basename(x) <=> File.basename(y)}.each do |fixture|
+      load fixture 
+      puts "Loaded #{fixture}"
+    end
+    Dir[File.join(RAILS_ROOT, 'db', 'populate', 'after', '*.rb')].sort.each do |fixture| 
       load fixture 
       puts "Loaded #{fixture}"
     end
