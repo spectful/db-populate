@@ -10,6 +10,7 @@ class ActiveRecord::Base
   # Returns the record.
   def self.create_or_update(options = {})
     id = options.delete(primary_key.to_sym)
+    id ||= options.delete(primary_key)
     validate = options.delete(:perform_validations){|k| true}
     record = send("find_by_#{primary_key}", id) || new
     record.id = id
